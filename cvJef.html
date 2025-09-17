@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Currículum Vitae - Jefferson Poaquiza</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Iconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'Roboto',sans-serif;background:#ecf0f1;color:#2c3e50;}
+    a{color:#3498db;text-decoration:none;}a:hover{text-decoration:underline;}
+
+    .cv-container{display:flex;max-width:1100px;margin:30px auto;background:#fff;border-radius:12px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.1);overflow:hidden;}
+    aside{width:30%;background:#2c3e50;color:#ecf0f1;padding:30px 20px;text-align:center;}
+    aside img{width:120px;height:150px;object-fit:cover;border-radius:8px;margin-bottom:15px;
+      border:3px solid #3498db; border-radius: 10%;}
+    aside h1{font-size:1.5em;margin-bottom:5px;}
+    aside p{font-size:0.95em;margin-bottom:15px;}
+    .contact{text-align:left;margin-top:20px;}
+    .contact h3{border-bottom:2px solid #3498db;padding-bottom:5px;margin-bottom:10px;font-size:1.1em;}
+    .contact p{margin:8px 0;font-size:0.9em;display:flex;align-items:center;gap:8px;}
+
+    .sidebar-section{text-align:left;margin-top:25px;}
+    .sidebar-section h3{border-bottom:2px solid #3498db;padding-bottom:5px;margin-bottom:10px;font-size:1.1em;}
+    .sidebar-skills{list-style:none;padding:0;}
+    .sidebar-skills li{margin:5px 0;padding:3px 0;font-size:0.9em;color:#bdc3c7;}
+    .education-item{margin-bottom:15px;}
+    .education-item h4{font-size:1em;margin-bottom:3px;color:#ecf0f1;}
+    .education-item .institution{font-size:0.85em;color:#3498db;margin-bottom:2px;}
+    .education-item .year{font-size:0.8em;color:#95a5a6;}
+
+    main{width:70%;padding:30px;}
+    section{margin-bottom:25px;}
+    section h2{font-size:1.4em;color:#34495e;border-left:5px solid #3498db;padding-left:10px;margin-bottom:10px;}
+    section p,section li{font-size:0.95em;margin-bottom:8px;color:#555;}
+
+    .experience-item{margin-bottom:20px;padding-bottom:15px;border-bottom:1px solid #eee;}
+    .experience-item:last-child{border-bottom:none;}
+    .experience-item h3{font-size:1.1em;color:#2c3e50;margin-bottom:5px;}
+    .experience-item .company{font-weight:bold;color:#3498db;margin-bottom:3px;}
+    .experience-item .period{font-size:0.9em;color:#7f8c8d;margin-bottom:8px;font-style:italic;}
+
+    .education-detail{margin-bottom:15px;}
+    .education-detail h3{font-size:1.1em;color:#2c3e50;margin-bottom:5px;}
+    .education-detail .institution-main{font-weight:bold;color:#3498db;margin-bottom:5px;}
+    .education-detail .thesis{font-size:0.9em;color:#666;line-height:1.4;}
+
+    .skills span{display:inline-flex;align-items:center;background:#3498db;color:#fff;padding:5px 12px;
+      border-radius:20px;margin:5px 5px 0 0;font-size:0.85em;gap:6px;}
+    .skill-bar{background:#e0e0e0;border-radius:20px;overflow:hidden;margin:5px 0 12px;}
+    .skill-bar div{height:12px;background:#3498db;width:0;border-radius:20px;transition:width 1.5s ease-in-out;}
+    .animate{width:var(--skill-level);}
+
+    footer{text-align:center;padding:15px;font-size:0.9em;color:#7f8c8d;background:#f4f6f7;border-top:1px solid #ddd;}
+  </style>
+</head>
+<body>
+  <div class="cv-container">
+    <!-- Lateral -->
+    <aside>
+      <img src="jef.jpg" alt="Foto de Jefferson">
+      <h1>Jefferson Poaquiza</h1>
+      <p>Ingeniero de Software</p>
+      <div class="contact">
+        <h3>Contacto</h3>
+        <p><i class="fa-solid fa-envelope"></i> <a href="mailto:jeffstalim111@gmail.com">jeffstalim111@gmail.com</a></p>
+        <p><i class="fa-brands fa-github"></i> <a href="https://github.com/Jeffer2S" target="_blank">github.com/Jeffer2S</a></p>
+        <p><i class="fa-solid fa-phone"></i> +593 990635344</p>
+        <p><i class="fa-solid fa-location-dot"></i> Ambato, Ecuador</p>
+      </div>
+
+      <div class="sidebar-section">
+        <h3>Habilidades</h3>
+        <ul class="sidebar-skills">
+          <li>Liderazgo</li>
+          <li>Comunicación asertiva</li>
+          <li>Gestión de archivos</li>
+          <li>Resolución de problemas</li>
+          <li>Elaboración de reportes</li>
+          <li>Trabajo en equipo</li>
+        </ul>
+      </div>
+
+      <div class="sidebar-section">
+        <h3>Educación</h3>
+        <div class="education-item">
+          <h4>Ingeniería en Software</h4>
+          <p class="institution">Universidad Técnica de Ambato</p>
+          <p class="year">2018-2023</p>
+        </div>
+        <div class="education-item">
+          <h4>Certificaciones</h4>
+          <p class="institution">AWS Cloud Practitioner</p>
+          <p class="year">2023</p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Contenido -->
+    <main>
+      <section>
+        <h2>Acerca de Mí</h2>
+        <p>Ingeniero de Software especializado en desarrollo web y móvil. Experiencia en Python, Java, Node.js y tecnologías cloud. Enfocado en soluciones innovadoras y buenas prácticas de desarrollo.</p>
+      </section>
+
+      <section>
+        <h2>Perfil Profesional</h2>
+        <p>Desarrollador con experiencia en microservicios, IoT y arquitecturas cloud. Competente en Docker, Kubernetes, Jenkins y análisis de datos con Python. Comprometido con la calidad y mejora continua del software.</p>
+      </section>
+
+      <section>
+        <h2>Experiencia Laboral</h2>
+        <div class="experience-item">
+          <h3>Desarrollador Full Stack</h3>
+          <p class="company">Tech Solutions Ecuador</p>
+          <p class="period">2023 - Presente</p>
+          <p>Desarrollo de aplicaciones web con React, Node.js y MongoDB. Implementación de microservicios y despliegue en AWS.</p>
+        </div>
+
+        <div class="experience-item">
+          <h3>Analista de Sistemas</h3>
+          <p class="company">Innovación Digital Ambato</p>
+          <p class="period">2022 - 2023</p>
+          <p>Análisis y diseño de sistemas empresariales. Automatización de procesos con Python y bases de datos relacionales.</p>
+        </div>
+
+        <div class="experience-item">
+          <h3>Desarrollador Junior</h3>
+          <p class="company">StartUp TechAmbato</p>
+          <p class="period">2021 - 2022</p>
+          <p>Desarrollo de aplicaciones móviles Android con Kotlin. Participación en ciclo completo de desarrollo de software.</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>Formación Académica</h2>
+        <div class="education-detail">
+          <h3>Ingeniería en Software</h3>
+          <p class="institution-main">Universidad Técnica de Ambato (UTA), Ecuador</p>
+          <p class="thesis">Tesis: <em>Sistema Inteligente de Gestión de Estacionamientos con Microservicios e IoT</em></p>
+        </div>
+      </section>
+
+      <section>
+        <h2>Proyectos Relevantes</h2>
+        <ul>
+          <li><strong>GENDOCS:</strong> Sistema de gestión documental universitaria</li>
+          <li><strong>!Here!:</strong> App móvil para registro de asistencia estudiantil</li>
+          <li><strong>Clipper Barbershop:</strong> Plataforma de reservas online</li>
+          <li><strong>Sistema de Órdenes:</strong> Inventario inteligente con alertas automáticas</li>
+          <li><strong>Data Warehouse:</strong> Diseño en SQL Server con ETL Python</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Conocimientos Técnicos</h2>
+        <div class="skills">
+          <span><i class="devicon-python-plain"></i> Python</span>
+          <span><i class="devicon-pandas-plain"></i> Pandas</span>
+          <span><i class="devicon-numpy-plain"></i> NumPy</span>
+          <span><i class="devicon-java-plain"></i> Java</span>
+          <span><i class="devicon-spring-plain"></i> Spring Boot</span>
+          <span><i class="devicon-nodejs-plain"></i> Node.js</span>
+          <span><i class="devicon-express-original"></i> Express</span>
+          <span><i class="devicon-mongodb-plain"></i> MongoDB</span>
+          <span><i class="devicon-android-plain"></i> Android (Kotlin)</span>
+          <span><i class="devicon-docker-plain"></i> Docker</span>
+          <span><i class="devicon-kubernetes-plain"></i> Kubernetes</span>
+          <span><i class="devicon-jenkins-line"></i> Jenkins</span>
+          <span><i class="devicon-amazonwebservices-plain"></i> AWS</span>
+          <span><i class="devicon-azure-plain"></i> Azure</span>
+          <span><i class="devicon-googlecloud-plain"></i> Google Cloud</span>
+        </div>
+
+        <h3>Nivel de Competencias</h3>
+        <p>Python / Data Analysis</p>
+        <div class="skill-bar"><div style="--skill-level: 90%;"></div></div>
+        <p>Desarrollo Backend</p>
+        <div class="skill-bar"><div style="--skill-level: 85%;"></div></div>
+        <p>Cloud / DevOps</p>
+        <div class="skill-bar"><div style="--skill-level: 80%;"></div></div>
+      </section>
+
+      <section>
+        <h2>Habilidades Blandas</h2>
+        <ul>
+          <li>Trabajo en equipo</li>
+          <li>Liderazgo de proyectos</li>
+          <li>Gestión del tiempo</li>
+          <li>Comunicación efectiva</li>
+          <li>Adaptabilidad tecnológica</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Idiomas</h2>
+        <ul>
+          <li>Español: Nativo</li>
+          <li>Inglés: Intermedio</li>
+        </ul>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    &copy; 2025 Jefferson Poaquiza | Todos los derechos reservados
+  </footer>
+
+  <script>
+    // animación de las barras
+    window.addEventListener('load', () => {
+      document.querySelectorAll('.skill-bar div').forEach(bar => {
+        const width = bar.style.getPropertyValue('--skill-level');
+        setTimeout(()=>{bar.style.width=width;},300);
+      });
+    });
+  </script>
+</body>
+</html>

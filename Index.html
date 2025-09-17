@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Code</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #071025;
+      --card: #0f1724;
+      --muted: #9aa9bf;
+      --accent1: #7c3aed;
+      /* purple */
+      --accent2: #06b6d4;
+      /* cyan */
+      --glass: rgba(255, 255, 255, 0.04);
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(7, 16, 37, 0.7), transparent),
+        radial-gradient(900px 500px at 90% 90%, rgba(12, 24, 48, 0.6), transparent),
+        var(--bg);
+      color: #e6eef8;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .navbar {
+      background: transparent
+    }
+
+    .brand-gradient {
+      background: linear-gradient(90deg, var(--accent2), var(--accent1));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-weight: 800;
+      font-size: 1.25rem;
+    }
+
+    .glass-card {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.015));
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(8px);
+    }
+
+    /* HERO */
+    .hero {
+      height: 86vh;
+      display: flex;
+      align-items: center;
+      padding: 3rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero .hero-left {
+      max-width: 680px
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      line-height: 1.02;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .hero p.lead {
+      color: var(--muted);
+      font-size: 1.05rem
+    }
+
+    .neon-btn {
+      background: linear-gradient(90deg, var(--accent2), var(--accent1));
+      border: none;
+      color: #021323;
+      font-weight: 700;
+      box-shadow: 0 8px 30px rgba(124, 58, 237, 0.18);
+    }
+
+    .hero-visual {
+      position: absolute;
+      right: 4%;
+      top: 6%;
+      width: 520px;
+      height: 520px;
+      border-radius: 30px;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(2, 19, 35, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.03);
+    }
+
+    .hero-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.02);
+      filter: contrast(1.05) saturate(1.05)
+    }
+
+    /* sections */
+    .section-title {
+      color: var(--accent2);
+      font-weight: 700;
+      margin-bottom: 1.5rem
+    }
+
+    .card {
+      background: var(--card);
+      border: none
+    }
+
+    .skill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .45rem .7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.03);
+      margin: 6px
+    }
+
+    /* achievements grid */
+    .ach-card {
+      cursor: pointer;
+      transition: transform .28s ease, box-shadow .28s ease
+    }
+
+    .ach-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 50px rgba(2, 19, 35, 0.7)
+    }
+
+    /* timeline inside modal */
+    .timeline {
+      position: relative;
+      padding-left: 20px
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 6px;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(180deg, var(--accent2), var(--accent1));
+      border-radius: 6px
+    }
+
+    .timeline-item {
+      margin-bottom: 1.2rem;
+      padding-left: 18px
+    }
+
+    .timeline-item strong {
+      display: block
+    }
+
+    /* team */
+    .team-card {
+      transition: transform .2s ease;
+      cursor: pointer
+    }
+
+    .team-card:hover {
+      transform: translateY(-6px)
+    }
+
+    .team-photo {
+      width: 110px;
+      height: 110px;
+      object-fit: cover;
+      border-radius: 999px;
+      border: 4px solid rgba(255, 255, 255, 0.03)
+    }
+
+    /* tech icons */
+    .tech-grid img {
+      width: 70px;
+      height: 70px;
+      object-fit: contain;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+      padding: 10px;
+      border-radius: 12px
+    }
+
+    footer {
+      padding: 2rem 0;
+      color: var(--muted);
+      text-align: center
+    }
+
+    /* responsive tweaks */
+    @media(max-width:991px) {
+      .hero-visual {
+        display: none
+      }
+
+      .hero h1 {
+        font-size: 2.2rem
+      }
+    }
+
+    body {
+      background: #0f172a;
+      color: #f8fafc;
+      /* Letras más claras */
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+   
+
+    .navbar .nav-link,
+    .navbar-brand {
+      color: #f8fafc !important;
+    }
+
+    .hero {
+      background: url('https://starkcloud.com/wp-content/uploads/2024/12/La-tecnologia-del-futuro-5-avances-que-cambiaran-el-mundo-2000x1200-1-1536x922.jpg') no-repeat center center/cover;
+      height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #f8fafc;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: bold;
+      text-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      color: #e2e8f0;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 2rem;
+      text-align: center;
+      color: #38bdf8;
+    }
+
+    .card {
+      background: #1e293b;
+      border: none;
+      color: #f8fafc;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark py-3">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <div
+          style="width:56px;height:56px;border-radius:12px;overflow:hidden;margin-right:12px;border:1px solid rgba(255,255,255,0.04);">
+          <img src="Imagen de WhatsApp 2025-09-14 a las 19.02.54_2201f013.jpg" alt="logo"
+            style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <span class="brand-gradient">Smart Code</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="#logros">Logros</a></li>
+          <li class="nav-item"><a class="nav-link" href="#equipo">Equipo</a></li>
+          <li class="nav-item"><a class="nav-link" href="#tecnologias">Tecnologías</a></li>
+          <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero container">
+    <div class="hero-left">
+      <h1>Impulsamos tu futuro digital</h1>
+      <div class="d-flex gap-3 mt-4">
+        <a href="#contacto" class="btn neon-btn btn-lg">Contactar por WhatsApp</a>
+      </div>
+
+      <div class="row mt-4 gy-3">
+        <div class="col-6 col-md-4">
+          <div class="glass-card p-3 rounded-3">
+            <small class="fw-bold">Tiempo medio de entrega</small>
+            <div class="fw-bold">4-6 semanas</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4">
+          <div class="glass-card p-3 rounded-3">
+            <small class="fw-bold">Satisfacción</small>
+            <div class="fw-bold">98%</div>
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="glass-card p-3 rounded-3 d-flex align-items-center gap-3">
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/rocket.png" alt="rocket" width="28">
+            <div>
+              <small class="fw-bold">Lanzamientos</small>
+              <div class="fw-bold">+50</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- hero visual (cambia la imagen principal aquí) -->
+
+  </section>
+
+  <!-- NUESTRA EMPRESA -->
+  <section class="container py-5" id="empresa">
+    <h2 class="section-title">Nuestra Empresa</h2>
+    <p>En <strong>Smart Code</strong> transformamos ideas en productos digitales robustos. Nuestro equipo combina
+      diseño, ingeniería y estrategia para llevar proyectos desde la validación hasta la operación.</p>
+    <div class="row mt-4">
+      <div class="col-md-4">
+        <div class="card p-3 glass-card">
+          <h5>Misión</h5>
+          <p class="mb-0">En Smart Code desarrollamos soluciones tecnológicas innovadoras que simplifican la vida de las personas y potencian la eficiencia de las organizaciones. Nuestro compromiso es diseñar software de calidad, seguro y accesible, que aporte valor real a los usuarios mediante experiencias intuitivas y confiables.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card p-3 glass-card">
+          <h5>Visión</h5>
+          <p class="mb-0">Ser una empresa referente en el desarrollo de software en Latinoamérica, reconocida por su capacidad de innovación, excelencia técnica y compromiso con la transformación digital, creando productos que conecten a las personas y generen impacto positivo en la sociedad.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card p-3 glass-card">
+          <h5>Valores</h5>
+          <p class="mb-0">Calidad, transparencia y crecimiento conjunto.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOGROS (cada tarjeta abre un modal distinto) -->
+  <section class="container py-5" id="logros">
+    <h2 class="section-title">Nuestros Logros</h2>
+    <div class="row g-4">
+      <div class="col-sm-6 col-md-3">
+        <div class="card p-4 ach-card text-center" role="button" data-bs-toggle="modal"
+          data-bs-target="#modalProyectos">
+          <h3 class="mb-0">+50</h3>
+          <p class="mb-0">Proyectos exitosos</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-3">
+        <div class="card p-4 ach-card text-center" role="button" data-bs-toggle="modal" data-bs-target="#modalClientes">
+          <h3 class="mb-0">+20</h3>
+          <p class="mb-0">Clientes satisfechos</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-3">
+        <div class="card p-4 ach-card text-center" role="button" data-bs-toggle="modal" data-bs-target="#modalPremios">
+          <h3 class="mb-0">5</h3>
+          <p class="mb-0">Premios obtenidos</p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-3">
+        <div class="card p-4 ach-card text-center" role="button" data-bs-toggle="modal" data-bs-target="#modalTimeline">
+          <h3 class="mb-0">10 años</h3>
+          <p class="mb-0">De experiencia</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal: Proyectos -->
+  <div class="modal fade" id="modalProyectos" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content bg-dark text-light">
+        <div class="modal-header border-0">
+          <h5 class="modal-title">Proyectos exitosos</h5>
+          <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="card p-3 glass-card h-100">
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=60"
+                  alt="plataforma educativa" class="rounded-3 mb-3" style="width:100%;height:160px;object-fit:cover">
+                <h6>Plataforma de gestión educativa</h6>
+                <p class="small">Sistema integral para instituciones educativas con control de matrículas,
+                  notas, y reportes automatizados.</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card p-3 glass-card h-100">
+                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=60"
+                  alt="banca movil" class="rounded-3 mb-3" style="width:100%;height:160px;object-fit:cover">
+                <h6>App de banca móvil</h6>
+                <p class="small">Aplicación móvil con autenticación biométrica, transacciones y reportes en
+                  tiempo real.</p>
+              </div>
+            </div>
+            <div class="col-12 mt-3">
+              <p class="mb-0">Si quieres ver más casos de estudio o un demo, escríbenos por WhatsApp y te compartimos
+                acceso privado a demos en producción.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Clientes -->
+  <div class="modal fade" id="modalClientes" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content bg-dark text-light">
+        <div class="modal-header border-0">
+          <h5 class="modal-title">Clientes satisfechos</h5>
+          <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row g-3">
+            <div class="col-md-4">
+              <div class="card p-3 glass-card h-100 text-center">
+                <img src="https://www.ceupe.com/images/easyblog_articles/3153/b2ap3_large_que-es-una-cooperativa.jpg"
+                  alt="cooperativa"
+                  style="width:80px;height:80px;object-fit:cover;border-radius:12px;margin:0 auto 10px;">
+                <h6 class="mb-0">Cooperativa Sin Limites</h6>
+                <small >Plataforma de préstamos y gestión crediticia</small>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card p-3 glass-card h-100 text-center">
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=60"
+                  alt="startup" style="width:80px;height:80px;object-fit:cover;border-radius:12px;margin:0 auto 10px;">
+                <h6 class="mb-0">TicketMaster</h6>
+                <small >Plataforma de venta de entradas</small>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card p-3 glass-card h-100 text-center">
+                <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=600&q=60"
+                  alt="retail" style="width:80px;height:80px;object-fit:cover;border-radius:12px;margin:0 auto 10px;">
+                <h6 class="mb-0">Unidad Educativa Educadores del Mañana</h6>
+                <small>Plataforma educativa</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Premios -->
+  <div class="modal fade" id="modalPremios" tabindex="-1">
+    <div class="modal-dialog modal-md modal-dialog-centered">
+      <div class="modal-content bg-dark text-light">
+        <div class="modal-header border-0">
+          <h5 class="modal-title">Premios y Reconocimientos</h5>
+          <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <ul class="mb-0">
+            <li><strong>Mejor Startup 2023</strong> — Premio por innovación en soluciones educativas.</li>
+            <li><strong>Innovación Digital 2024</strong> — Reconocimiento en categoría FinTech.</li>
+            <li><strong>Top 50 Empresas Tech 2025</strong> — Seleccionados por impacto regional.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Timeline -->
+  <div class="modal fade" id="modalTimeline" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content bg-dark text-light">
+        <div class="modal-header border-0">
+          <h5 class="modal-title">Línea de tiempo</h5>
+          <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <div class="timeline">
+            <div class="timeline-item">
+              <strong>2015</strong>
+              <div >Fundación de Smart Code — primeros proyectos web y consultorías.</div>
+            </div>
+            <div class="timeline-item">
+              <strong>2018</strong>
+              <div >Expansión a móviles y servicios en la nube.</div>
+            </div>
+            <div class="timeline-item">
+              <strong>2021</strong>
+              <div >Crecimiento de clientes en sector financiero y educativo.</div>
+            </div>
+            <div class="timeline-item">
+              <strong>2024</strong>
+              <div >Reconocimientos nacionales e internacionalización.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EQUIPO -->
+  <section class="container py-5" id="equipo">
+    <h2 class="section-title">Nuestro Equipo</h2>
+    <div class="row g-4">
+      <!-- cada foto abre un archivo html con el CV correspondiente -->
+      <div class="col-6 col-md-3">
+        <a href="cv-elvis.html" target="_blank" class="text-decoration-none text-reset">
+          <div class="card p-3 text-center team-card">
+            <img src="IMG_20240621_134205.jpg" alt="Elvis Flores" class="team-photo mx-auto">
+            <h5 class="mt-3 mb-0">Elvis Flores</h5>
+            <small >CEO & Fundador</small>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-6 col-md-3">
+        <a href="cvJef.html" target="_blank" class="text-decoration-none text-reset">
+          <div class="card p-3 text-center team-card">
+            <img src="jef.jpg" alt="Jefferson Poaquiza" class="team-photo mx-auto">
+            <h5 class="mt-3 mb-0">Jefferson Poaquiza</h5>
+            <small >CTO</small>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-6 col-md-3">
+        <a href="cvAlex.html" target="_blank" class="text-decoration-none text-reset">
+          <div class="card p-3 text-center team-card">
+            <img src="Alex.png" alt="Alex Ponluisa" class="team-photo mx-auto">
+            <h5 class="mt-3 mb-0">Alex Ponluisa</h5>
+            <small >Desarrollador Senior</small>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-6 col-md-3">
+        <a href="cv_alexis.html" target="_blank" class="text-decoration-none text-reset">
+          <div class="card p-3 text-center team-card">
+            <img src="alexis.jpg" alt="Alexis Poaquiza" class="team-photo mx-auto">
+            <h5 class="mt-3 mb-0">Alexis Poaquiza</h5>
+            <small >UX/UI Designer</small>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-6 col-md-3">
+        <a href="cvMela.html" target="_blank" class="text-decoration-none text-reset">
+          <div class="card p-3 text-center team-card">
+            <img src="mela2.jpg" alt="Melanie Silva" class="team-photo mx-auto" style="width:90px;height:90px">
+            <h5 class="mt-3 mb-0">Melanie Silva</h5>
+            <small>DevOps</small>
+          </div>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SERVICIOS (más información y imágenes) -->
+  <section class="container py-5" id="servicios">
+    <h2 class="section-title">Servicios</h2>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card p-3 glass-card h-100">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDyy17Shmhb5qyiCHpRCuOqNYV0bt5cx2G1A&s"
+            alt="desarrollo web" style="width:100%;height:140px;object-fit:cover" class="rounded-3 mb-3">
+          <h5>Desarrollo Web</h5>
+          <p >Páginas y plataformas a medida y aplicaciones SaaS con enfoque en
+            escalabilidad y seguridad.</p>
+          <ul >
+            <li>Arquitectura escalable</li>
+            <li>Integraciones API y microservicios</li>
+            <li>Optimización para SEO y rendimiento</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card p-3 glass-card h-100">
+          <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=800&q=60"
+            alt="apps moviles" style="width:100%;height:140px;object-fit:cover" class="rounded-3 mb-3">
+          <h5>Aplicaciones Móviles</h5>
+          <p class=>Apps nativas y multiplataforma y despliegue a stores con soporte
+            post-lanzamiento.</p>
+          <ul >
+            <li>iOS & Android nativo</li>
+            <li>React Native / Flutter</li>
+            <li>Monitoreo y CI/CD</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card p-3 glass-card h-100">
+          <img src="data:image/jpeg;base64,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"
+            alt="inteligencia artificial" style="width:100%;height:140px;object-fit:cover" class="rounded-3 mb-3">
+          <h5>Inteligencia Artificial & Data</h5>
+          <p >Modelos de ML, pipelines de datos y analítica avanzada para decisiones basadas en
+            datos.</p>
+          <ul >
+            <li>Modelado predictivo y clasificación</li>
+            <li>ETL y Data Warehouse</li>
+            <li>Integración con APIs de LLM</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECNOLOGIAS -->
+  <section class="container py-5" id="tecnologias">
+    <h2 class="section-title">Tecnologías que Usamos</h2>
+    <div class="d-flex flex-wrap tech-grid gap-3 justify-content-center">
+      <div class="skill-badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+          alt="React" style="width:50px;height:50px"> React</div>
+      <div class="skill-badge"><img
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" alt="Angular"
+          style="width:50px;height:50px"> Angular</div>
+      <div class="skill-badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+          alt="Node.js" style="width:50px;height:50px"> Node.js</div>
+      <div class="skill-badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+          alt="Python" style="width:50px;height:50px"> Python</div>
+      <div class="skill-badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"
+          alt="Java" style="width:50px;height:50px"> Java</div>
+      <div class="skill-badge"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"
+          alt="Docker" style="width:50px;height:50px"> Docker</div>
+      <div class="skill-badge"><img
+          src="data:image/png;base64,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"
+          alt="AWS" style="width:50px;height:50px"> AWS</div>
+      <div class="skill-badge"><img
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="Flutter"
+          style="width:50px;height:50px"> Flutter</div>
+    </div>
+  </section>
+
+  <!-- CONTACTO: en vez de enviar a gmail, abrimos WhatsApp con mensaje predefinido -->
+  <section class="container py-5" id="contacto">
+    <h2 class="section-title">Contáctanos</h2>
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <div class="card p-4 glass-card">
+          <h5>¿Tienes un proyecto en mente?</h5>
+          <p>Escríbenos por WhatsApp y te respondemos en menos de 24 horas.</p>
+          <form id="contactForm" onsubmit="event.preventDefault(); openWhatsApp();">
+            <div class="mb-3">
+              <input id="name" class="form-control" placeholder="Tu nombre" required>
+            </div>
+            <div class="mb-3">
+              <input id="company" class="form-control " placeholder="Empresa (opcional)">
+            </div>
+            <div class="mb-3">
+              <textarea id="message" class="form-control " rows="4"
+                placeholder="Describe tu proyecto" required></textarea>
+            </div>
+            <button type="submit" class="btn neon-btn w-100">Enviar por WhatsApp</button>
+            <small>También podemos agendar una demo técnica si lo deseas.</small>
+          </form>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6 text-md-start">© 2025 Smart Code - Todos los derechos reservados</div>
+        <div class="col-md-6 text-md-end text-muted small">Hecho con ❤️ · Quito, Ecuador</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // función que abre WhatsApp con mensaje predefinido
+    function openWhatsApp() {
+      const phone = '593995737456'; // <- reemplaza con tu número (código país sin +) ejemplo: 593999888777
+      const name = encodeURIComponent(document.getElementById('name').value || 'Cliente');
+      const company = encodeURIComponent(document.getElementById('company').value || '');
+      const msg = encodeURIComponent(document.getElementById('message').value || 'Hola, quiero información sobre un proyecto.');
+      const final = `Hola! Soy ${name} ${company ? ('de ' + company) : ''}. ${decodeURIComponent(msg)}`;
+      const waUrl = `https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(final)}`;
+      window.open(waUrl, '_blank');
+    }
+
+    // si quieres abrir modals dinámicamente en futuro, aquí puedes añadir lógica JS adicional
+  </script>
+</body>
+
+</html>
